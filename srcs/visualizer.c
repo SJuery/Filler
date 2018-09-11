@@ -6,7 +6,7 @@
 /*   By: sjuery <sjuery@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/22 19:58:59 by sjuery            #+#    #+#             */
-/*   Updated: 2018/01/23 21:18:24 by sjuery           ###   ########.fr       */
+/*   Updated: 2018/01/23 19:45:09 by sjuery           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	vis_create(t_filler *flr, t_visual *vis)
 {
 	t_points s;
-
 	vis->img = mlx_new_image(vis->mlx, 1000, 1000);
 	vis->img_int = (int*)mlx_get_data_addr(
 		vis->img, &vis->zero, &vis->zero, &vis->zero);
@@ -25,7 +24,7 @@ void	vis_create(t_filler *flr, t_visual *vis)
 		s.x = 0;
 		while (s.x < 1000)
 		{
-			vis->img_int[((s.y * 1000) + s.x)] = 0XE5E5E5;
+			vis->img_int[((s.y * 1000) + s.x)] = 0xffffff;
 			s.x++;
 		}
 		s.y++;
@@ -66,9 +65,9 @@ void	vis_update(t_filler *flr, t_visual *vis)
 		while (coords.x < flr->map_size.x)
 		{
 			if (flr->map[coords.y][coords.x] == flr->player)
-				vis_fill(flr, vis, coords, 0x000000);
+				vis_fill(flr, vis, coords, 0x00a1cb);
 			if (flr->map[coords.y][coords.x] == flr->opponent)
-				vis_fill(flr, vis, coords, 0xFFFFFF);
+				vis_fill(flr, vis, coords, 0xd2232a);
 			coords.x++;
 		}
 		coords.y++;
